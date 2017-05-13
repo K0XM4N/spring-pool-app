@@ -12,7 +12,7 @@ public class ViewController {
     @GetMapping(value = "/")
     public String displayWelcomePage(){
 
-        return "welcome-page";
+        return "login-page";
 
     }
 
