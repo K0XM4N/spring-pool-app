@@ -36,7 +36,7 @@ public class Transaction {
 
     private Boolean status;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
