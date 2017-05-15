@@ -8,7 +8,6 @@ import java.sql.Time;
  * Created by Krzysztof on 2017-05-15.
  */
 @Entity
-@Table(name = "DailyRaport")
 public class DailyRaport {
 
     @Id
