@@ -36,11 +36,11 @@ public class Transaction {
 
     private Boolean status;
 
-    @OneToOne
+    @OneToMany
     @Column(name = "employee_id")
     private Employee employeeId;
 
-    @OneToOne
+    @OneToMany
     @Column(name = "token_id")
     private Token tokenId;
 
