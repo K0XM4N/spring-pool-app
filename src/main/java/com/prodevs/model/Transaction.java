@@ -40,6 +40,9 @@ public class Transaction {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @ManyToOne
+    @JoinColumn(name = "token_id")
+    private Token tokenId;
 
     Transaction() {}
 
@@ -135,6 +138,14 @@ public class Transaction {
         this.employee = employee;
     }
 
+    public Token getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(Token tokenId) {
+        this.tokenId = tokenId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -151,7 +162,8 @@ public class Transaction {
         if (timeIn != null ? !timeIn.equals(that.timeIn) : that.timeIn != null) return false;
         if (timeOut != null ? !timeOut.equals(that.timeOut) : that.timeOut != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        return employee.equals(that.employee);
+        if (!employee.equals(that.employee)) return false;
+        return tokenId.equals(that.tokenId);
     }
 
     @Override
@@ -166,6 +178,7 @@ public class Transaction {
         result = 31 * result + (timeOut != null ? timeOut.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + employee.hashCode();
+        result = 31 * result + tokenId.hashCode();
         return result;
     }
 }
