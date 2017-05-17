@@ -1,10 +1,8 @@
 package com.prodevs.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by Krzysztof on 2017-05-15.
@@ -39,6 +37,9 @@ public class Employee {
     private Date updatedAt;
 
     private String role;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Transaction> transactions;
 
 
     public Employee() {
@@ -137,6 +138,13 @@ public class Employee {
         this.role = role;
     }
 
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -154,7 +162,8 @@ public class Employee {
         if (password != null ? !password.equals(employee.password) : employee.password != null) return false;
         if (isActive != null ? !isActive.equals(employee.isActive) : employee.isActive != null) return false;
         if (updatedAt != null ? !updatedAt.equals(employee.updatedAt) : employee.updatedAt != null) return false;
-        return role != null ? role.equals(employee.role) : employee.role == null;
+        if (role != null ? !role.equals(employee.role) : employee.role != null) return false;
+        return transactions != null ? transactions.equals(employee.transactions) : employee.transactions == null;
     }
 
     @Override
@@ -169,7 +178,7 @@ public class Employee {
         result = 31 * result + (isActive != null ? isActive.hashCode() : 0);
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (transactions != null ? transactions.hashCode() : 0);
         return result;
     }
-
 }
