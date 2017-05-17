@@ -1,5 +1,6 @@
 package com.prodevs.service;
 
+import com.prodevs.model.DailyRaport;
 import com.prodevs.repository.DailyRaportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,10 @@ public class DailyRaportService {
     }
 
 
+    public DailyRaport findById(Integer dailyRaportId){
+
+        return dailyReportRepo.findOne(dailyRaportId);
+
+    }
 
 }
