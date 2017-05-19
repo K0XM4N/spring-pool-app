@@ -37,9 +37,12 @@ public class Transaction {
     private Boolean status;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee employeeId;
 
+    @ManyToOne
+    @JoinColumn(name = "token_id", nullable = false)
+    private Token tokenId;
 
     Transaction() {}
 
@@ -127,12 +130,20 @@ public class Transaction {
         this.status = status;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Employee getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeId(Employee employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public Token getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(Token tokenId) {
+        this.tokenId = tokenId;
     }
 
     @Override
@@ -151,7 +162,8 @@ public class Transaction {
         if (timeIn != null ? !timeIn.equals(that.timeIn) : that.timeIn != null) return false;
         if (timeOut != null ? !timeOut.equals(that.timeOut) : that.timeOut != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        return employee.equals(that.employee);
+        if (!employeeId.equals(that.employeeId)) return false;
+        return tokenId.equals(that.tokenId);
     }
 
     @Override
@@ -165,7 +177,8 @@ public class Transaction {
         result = 31 * result + (timeIn != null ? timeIn.hashCode() : 0);
         result = 31 * result + (timeOut != null ? timeOut.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + employee.hashCode();
+        result = 31 * result + employeeId.hashCode();
+        result = 31 * result + tokenId.hashCode();
         return result;
     }
 }
