@@ -38,7 +38,7 @@ public class Employee {
 
     private String role;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employeeId")
     private List<Transaction> transactions;
 
 
