@@ -15,7 +15,7 @@ import java.util.List;
 public class DiscountService {
 
     @Autowired
-    DiscountRepository discountRepo;
+    private DiscountRepository discountRepo;
 
     public DiscountService(DiscountRepository repository ){
         this.discountRepo = repository;

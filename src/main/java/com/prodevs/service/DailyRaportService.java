@@ -15,7 +15,7 @@ import java.util.List;
 public class DailyRaportService {
 
     @Autowired
-    DailyRaportRepository dailyReportRepo;
+    private DailyRaportRepository dailyReportRepo;
 
     public DailyRaportService(DailyRaportRepository dailyReportRepo){
         this.dailyReportRepo = dailyReportRepo;

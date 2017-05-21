@@ -15,7 +15,7 @@ import java.util.List;
 public class EmployeeService {
 
     @Autowired
-    EmployeeRepository employeeRepo;
+    private EmployeeRepository employeeRepo;
 
     public EmployeeService(EmployeeRepository repository){
         this.employeeRepo = repository;
