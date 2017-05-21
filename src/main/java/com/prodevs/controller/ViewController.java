@@ -1,6 +1,8 @@
 package com.prodevs.controller;
 
+import com.prodevs.model.Employee;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -17,8 +19,9 @@ public class ViewController {
     }
 
     @GetMapping(value = "/register")
-    public String displayRegisterPage(){
+    public String displayRegisterPage(Model model){
 
+        model.addAttribute("employeeBean", new Employee());
         return "register-page";
 
     }
