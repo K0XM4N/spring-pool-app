@@ -41,10 +41,10 @@ public class DailyRaportService {
 
     }
 
-    public DailyRaport update(DailyRaport updatedRaport, Integer oldRaportId){
+    public DailyRaport update(DailyRaport modifiedRaport, Integer oldRaportId){
 
-        DailyRaport oldRaport = dailyReportRepo.findOne(oldRaportId);
-        BeanUtils.copyProperties(updatedRaport,oldRaport);
+        DailyRaport updatedRaport = dailyReportRepo.findOne(oldRaportId);
+        BeanUtils.copyProperties(modifiedRaport,updatedRaport);
 
         return dailyReportRepo.saveAndFlush(updatedRaport);
 
