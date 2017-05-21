@@ -16,4 +16,11 @@ public class ViewController {
 
     }
 
+    @GetMapping(value = "/register")
+    public String displayRegisterPage(){
+
+        return "register-page";
+
+    }
+
 }
