@@ -14,7 +14,7 @@ public class ViewController {
     @GetMapping(value = "/")
     public String displayWelcomePage(){
 
-        return "login-page";
+        return "welcome-page";
 
     }
 
