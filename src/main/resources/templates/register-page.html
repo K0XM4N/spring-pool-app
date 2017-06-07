@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Website CSS style -->
+
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <title>Register</title>
 </head>
 <body>
-        <form>
+        <form class="form">
+
             <input type="text" placeholder="First Name"> <br>
             <input type="text" placeholder="Second Name"> <br>
             <input type="text" placeholder="Login"> <br>
@@ -31,6 +48,7 @@
             <input type="submit" value="Back">
         </form>
 
-
+        <script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
