@@ -22,7 +22,7 @@ public class ViewController {
     public String displayRegisterPage(Model model){
 
         model.addAttribute("employeeBean", new Employee());
-        return "register-page";
+        return "register2-page";
 
     }
 
