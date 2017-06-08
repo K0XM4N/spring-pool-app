@@ -25,7 +25,9 @@
 <div class="container">
     <form class="form">
         <div class="header">
-            <span class="glyphicon glyphicon-user"></span> Register
+            <span class="glyphicon glyphicon-user">
+                Register
+            </span>
         </div>
         <div class="form-group">
             <input th:type="text" th:class="form-control" placeholder="First Name">
@@ -44,16 +46,28 @@
         </div>
 
         <div class="form-group">
-
+            <input th:type="email" th:class="form-control" placeholder="E-mail">
         </div>
         <div class="form-group">
-
+            <input th:type="text" th:class="form-control" placeholder="___-___-___">
         </div>
         <div class="form-group">
-
+            <select th:class="form-control">
+                <option th:class="form-control">Select account status</option>
+                <option th:class="form-control">Active</option>
+                <option th:class="form-control">Inactive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select th:class="form-control">
+                <option th:class="form-control">Select account role</option>
+                <option th:class="form-control">Admin</option>
+                <option th:class="form-control">Employee</option>
+            </select>
         </div>
 
         <button type="button" class="btn btn-primary btn-lg btn-block">Register</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Back</button>
     </form>
 </div>
 
