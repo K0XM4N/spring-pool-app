@@ -18,37 +18,60 @@
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-    <title>Register</title>
+
+    <title>Admin</title>
 </head>
 <body>
-        <form class="form">
+<div class="container">
+    <form class="form">
+        <div class="header">
+            <span class="glyphicon glyphicon-user">
+                Register
+            </span>
+        </div>
+        <div class="form-group">
+            <input th:type="text" th:class="form-control" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <input th:type="text" th:class="form-control" placeholder="Second Name">
+        </div>
+        <div class="form-group">
+            <input th:type="text" th:class="form-control" placeholder="Login">
+        </div>
+        <div class="form-group">
+            <input th:type="password" th:class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input th:type="password" th:class="form-control" placeholder="Re-type password">
+        </div>
 
-            <input type="text" placeholder="First Name"> <br>
-            <input type="text" placeholder="Second Name"> <br>
-            <input type="text" placeholder="Login"> <br>
-            <input type="password" placeholder="Password"> <br>
-            <input type="password" placeholder="Confirm Password"> <br>
-            <input type="email" placeholder="E-mail"> <br>
-            <input type="text" placeholder="+48 ___-___-___"> <br>
-            <select>
-                <option value="select">Account status</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select> <br>
-            <select>
-                <option value="select">Select role</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select> <br>
+        <div class="form-group">
+            <input th:type="email" th:class="form-control" placeholder="E-mail">
+        </div>
+        <div class="form-group">
+            <input th:type="text" th:class="form-control" placeholder="___-___-___">
+        </div>
+        <div class="form-group">
+            <select th:class="form-control">
+                <option th:class="form-control">Select account status</option>
+                <option th:class="form-control">Active</option>
+                <option th:class="form-control">Inactive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select th:class="form-control">
+                <option th:class="form-control">Select account role</option>
+                <option th:class="form-control">Admin</option>
+                <option th:class="form-control">Employee</option>
+            </select>
+        </div>
 
-            <input type="submit" value="Register">
-        </form>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Register</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Back</button>
+    </form>
+</div>
 
-        <form>
-            <input type="submit" value="Back">
-        </form>
-
-        <script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
-        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

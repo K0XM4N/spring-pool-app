@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Formularz logowania do systemu</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../resources/static/css/style.css" type="text/css" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 
 
-<div th:class="container">
-    <form id="login">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Website CSS style -->
+
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+<!-- Website Font style -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+<title>Admin</title>
+</head>
+<body>
+<div class="container">
+    <form class="form">
         <div class="header">
-            <h3>Zaloguj się</h3>
-            <p>Wypełnij poniższe pola aby zalogować się do systemu</p>
+            <span class="glyphicon glyphicon-user">
+                Login
+            </span>
         </div>
-        <div class="sep"></div>
-        <div th:class="inputs">
-            <input type="text" placeholder="Login" autofocus />
-            <input type="password" placeholder="Hasło" />
-            <div class="remember">
-                <input name="checky" id="checky" value="1" type="checkbox"/>
-                <label class="terms">Zapamiętaj dane logowania</label>
-            </div>
-            <a id="submit" href="@">Zaloguj się do systemu</a>
+        <div class="form-group">
+            <input th:type="text" th:class="form-control" placeholder="Login">
         </div>
+        <div class="form-group">
+            <input th:type="password" th:class="form-control" placeholder="Password">
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block">Login</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Back</button>
     </form>
 </div>
 
+<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 
 </body>

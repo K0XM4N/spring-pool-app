@@ -22,8 +22,13 @@ public class ViewController {
     public String displayRegisterPage(Model model){
 
         model.addAttribute("employeeBean", new Employee());
-        return "register2-page";
+        return "register-page";
 
+    }
+
+    @GetMapping(value = "/login")
+    public String displayLoginPage(Model model){
+        return "login-page";
     }
 
 }
