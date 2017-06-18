@@ -23,14 +23,20 @@ public class EmployeeForm {
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$")
     private String eMail;
 
-    @Phone
+    @Phone()
     private Integer phone;
 
+    @NotNull
+    @Size(min=3, max=25)
     private String login;
 
+    @NotNull
+    @Size(min = 3, max=35)
     private String password;
 
-    private Boolean isActive;
+    @NotNull
+    private String isActive;
 
+    @NotNull
     private String role;
 }

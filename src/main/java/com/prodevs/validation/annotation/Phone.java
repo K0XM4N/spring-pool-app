@@ -7,6 +7,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.*;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 
 /**
  * Created by Krzysztof on 2017-06-18.
@@ -16,4 +17,9 @@ import javax.validation.Constraint;
 @Target({ METHOD, FIELD, CONSTRUCTOR, PARAMETER, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 public @interface Phone {
+
+    String message() default "Format must be: +48333444555";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+
 }
