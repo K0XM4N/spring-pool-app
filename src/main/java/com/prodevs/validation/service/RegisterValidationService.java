@@ -3,6 +3,7 @@ package com.prodevs.validation.service;
 import com.prodevs.validation.form.EmployeeForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import javax.validation.Validator;
 import javax.validation.ConstraintViolation;
@@ -17,19 +18,41 @@ public class RegisterValidationService {
 
     @Autowired
     private Validator validator;
+    private BindingResult bindingResult;
+    private EmployeeForm employeeForm;
 
     public RegisterValidationService(Validator validator) {
         this.validator = validator;
     }
 
-    public boolean verifyRegistrationFrom(EmployeeForm employeeForm){
-        Set<ConstraintViolation<EmployeeForm>> errors = validator.validate(employeeForm);
-        if (errors.isEmpty()){
-            return true;
-        }
-        else{
-            errors.forEach(errorMessage -> System.out.println(errorMessage.getMessage()));
+    public boolean verifyRegistrationFrom(){
+//        Set<ConstraintViolation<EmployeeForm>> errors = validator.validate(employeeForm);
+//
+//        if (errors.isEmpty() && !bindingResult.hasErrors()){
+//            return true;
+//        }
+//        else{
+//            errors.forEach(errorMessage -> System.out.println(errorMessage.getMessage()));
+//            return false;
+//        }
+
+        if (bindingResult.hasErrors()){
             return false;
         }
+        else{
+            return true;
+        }
+    }
+
+    public void setBindingResult(BindingResult bindingResult) {
+        this.bindingResult = bindingResult;
+    }
+
+    public BindingResult getBindingResult() {
+        return bindingResult;
+    }
+
+    public void setEmployeeForm(EmployeeForm employeeForm) {
+        this.employeeForm = employeeForm;
     }
 }

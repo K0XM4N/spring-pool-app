@@ -2,11 +2,15 @@ package com.prodevs.controller;
 
 import com.prodevs.model.Employee;
 import com.prodevs.service.EmployeeService;
+import com.prodevs.validation.form.EmployeeForm;
+import com.prodevs.validation.service.RegisterValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.sql.Date;
 
 /**
@@ -18,15 +22,34 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService service){
-        this.employeeService = service;
+    @Autowired
+    private RegisterValidationService registerValidationService;
+
+    public EmployeeController(EmployeeService employeeService, RegisterValidationService registerValidationService) {
+        this.employeeService = employeeService;
+        this.registerValidationService = registerValidationService;
     }
 
-    @PostMapping(value = "/register")
-    public String registerEmployee(@ModelAttribute Employee registeredEmployee, Model model){
 
-        employeeService.save(registeredEmployee);
-        return "register-page";
+
+    @PostMapping(value = "/api/employees")
+    public String registerEmployee(@Valid EmployeeForm employeeForm, BindingResult bindingResult){
+
+        registerValidationService.setBindingResult(bindingResult);
+        registerValidationService.setEmployeeForm(employeeForm);
+
+        if (registerValidationService.verifyRegistrationFrom() == true){
+            return "redirect:/";
+        }
+        else{
+            return "redirect:/register";
+        }
+
+//        if (bindingResult.hasErrors()){
+//            return "register-page";
+//        }
+//
+//        return "welcome-page";
 
     }
 

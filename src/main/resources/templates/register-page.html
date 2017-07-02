@@ -23,46 +23,47 @@
 </head>
 <body>
 <div class="container">
-    <form class="form">
+    <form class="form" action="#" th:action="@{/api/employees}" method="post" th:object="${employeeForm}">
         <div class="header">
             <span class="glyphicon glyphicon-user">
                 Register
             </span>
         </div>
         <div class="form-group">
-            <input th:type="text" th:class="form-control" placeholder="First Name">
+            <input th:type="text" th:class="form-control" placeholder="First Name" th:field="*{firstName}">
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</p>
+</div>
+        <div class="form-group">
+            <input th:type="text" th:class="form-control" placeholder="Second Name" th:field="*{lastName}">
         </div>
         <div class="form-group">
-            <input th:type="text" th:class="form-control" placeholder="Second Name">
+            <input th:type="text" th:class="form-control" placeholder="Login" th:field="*{login}">
         </div>
         <div class="form-group">
-            <input th:type="text" th:class="form-control" placeholder="Login">
+            <input th:type="password" th:class="form-control" placeholder="Password" th:field="*{password}">
         </div>
         <div class="form-group">
-            <input th:type="password" th:class="form-control" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input th:type="password" th:class="form-control" placeholder="Re-type password">
+            <input th:type="password" th:class="form-control" placeholder="Re-type password" th:field="*{rePassword}">
         </div>
 
         <div class="form-group">
-            <input th:type="email" th:class="form-control" placeholder="E-mail">
+            <input th:type="email" th:class="form-control" placeholder="E-mail" th:field="*{eMail}">
         </div>
+        <!--<div class="form-group">-->
+            <!--<input th:type="text" th:class="form-control" placeholder="___-___-___" th:field="*{phone}">-->
+        <!--</div>-->
         <div class="form-group">
-            <input th:type="text" th:class="form-control" placeholder="___-___-___">
-        </div>
-        <div class="form-group">
-            <select th:class="form-control">
-                <option th:class="form-control">Select account status</option>
-                <option th:class="form-control">Active</option>
-                <option th:class="form-control">Inactive</option>
+            <select th:class="form-control" th:field="*{isActive}">
+                <option th:class="form-control" value="1"></option>
+                <option th:class="form-control" value="Active">Active</option>
+                <option th:class="form-control" value="Inactive">Inactive</option>
             </select>
         </div>
         <div class="form-group">
-            <select th:class="form-control">
-                <option th:class="form-control">Select account role</option>
-                <option th:class="form-control">Admin</option>
-                <option th:class="form-control">Employee</option>
+            <select th:class="form-control" th:field="*{role}">
+                <option th:class="form-control" value="4"></option>
+                <option th:class="form-control" value="Admin">Admin</option>
+                <option th:class="form-control" value="Employee">Employee</option>
             </select>
         </div>
 
