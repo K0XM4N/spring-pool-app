@@ -23,7 +23,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form" action="#" th:action="@{/api/employees}" method="post" th:object="${employeeForm}">
+    <form class="form" action="#" th:action="@{/register}" method="post" th:object="${employeeForm}">
         <div class="header">
             <span class="glyphicon glyphicon-user">
                 Register
@@ -34,20 +34,25 @@
             <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</p>
 </div>
         <div class="form-group">
-            <input th:type="text" th:class="form-control" placeholder="Second Name" th:field="*{lastName}">
+            <input th:type="text" th:class="form-control" placeholder="Last Name" th:field="*{lastName}">
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</p>
         </div>
         <div class="form-group">
             <input th:type="text" th:class="form-control" placeholder="Login" th:field="*{login}">
+            <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Error</p>
         </div>
         <div class="form-group">
             <input th:type="password" th:class="form-control" placeholder="Password" th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</p>
         </div>
         <div class="form-group">
             <input th:type="password" th:class="form-control" placeholder="Re-type password" th:field="*{rePassword}">
+            <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}">Error</p>
         </div>
 
         <div class="form-group">
             <input th:type="email" th:class="form-control" placeholder="E-mail" th:field="*{eMail}">
+            <p th:if="${#fields.hasErrors('eMail')}" th:errors="*{eMail}">Error</p>
         </div>
         <!--<div class="form-group">-->
             <!--<input th:type="text" th:class="form-control" placeholder="___-___-___" th:field="*{phone}">-->
@@ -58,6 +63,7 @@
                 <option th:class="form-control" value="Active">Active</option>
                 <option th:class="form-control" value="Inactive">Inactive</option>
             </select>
+            <p th:if="${#fields.hasErrors('isActive')}" th:errors="*{isActive}">Error</p>
         </div>
         <div class="form-group">
             <select th:class="form-control" th:field="*{role}">
@@ -65,6 +71,7 @@
                 <option th:class="form-control" value="Admin">Admin</option>
                 <option th:class="form-control" value="Employee">Employee</option>
             </select>
+            <p th:if="${#fields.hasErrors('role')}" th:errors="*{role}">Error</p>
         </div>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>

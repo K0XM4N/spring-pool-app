@@ -30,29 +30,6 @@ public class EmployeeController {
         this.registerValidationService = registerValidationService;
     }
 
-
-
-    @PostMapping(value = "/api/employees")
-    public String registerEmployee(@Valid EmployeeForm employeeForm, BindingResult bindingResult){
-
-        registerValidationService.setBindingResult(bindingResult);
-        registerValidationService.setEmployeeForm(employeeForm);
-
-        if (registerValidationService.verifyRegistrationFrom() == true){
-            return "redirect:/";
-        }
-        else{
-            return "redirect:/register";
-        }
-
-//        if (bindingResult.hasErrors()){
-//            return "register-page";
-//        }
-//
-//        return "welcome-page";
-
-    }
-
     @GetMapping("/test")
     public String addEmployee(){
 

@@ -2,15 +2,28 @@ package com.prodevs.controller;
 
 import com.prodevs.model.Employee;
 import com.prodevs.validation.form.EmployeeForm;
+import com.prodevs.validation.service.RegisterValidationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 /**
  * Created by Krzysztof on 2017-05-12.
  */
 @Controller
 public class ViewController {
+
+    @Autowired
+    private RegisterValidationService registerValidationService;
+
+    public ViewController(RegisterValidationService registerValidationService){
+        this.registerValidationService = registerValidationService;
+    }
 
     @GetMapping(value = "/")
     public String displayWelcomePage(){
@@ -24,6 +37,22 @@ public class ViewController {
 
         model.addAttribute("employeeBean", new Employee());
         return "register-page";
+
+    }
+
+    @PostMapping(value = "/register")
+    public String registerEmployee(@Valid EmployeeForm employeeForm, BindingResult bindingResult){
+
+        registerValidationService.setEmployeeForm(employeeForm);
+        registerValidationService.setBindingResult(bindingResult);
+
+        if (registerValidationService.isRegistrationFormValid()){
+            //perform EmployeeServices methods to add employe to DB
+            return "redirect:/";
+        }
+        else{
+            return "register-page";
+        }
 
     }
 

@@ -25,23 +25,17 @@ public class RegisterValidationService {
         this.validator = validator;
     }
 
-    public boolean verifyRegistrationFrom(){
-//        Set<ConstraintViolation<EmployeeForm>> errors = validator.validate(employeeForm);
-//
-//        if (errors.isEmpty() && !bindingResult.hasErrors()){
-//            return true;
-//        }
-//        else{
-//            errors.forEach(errorMessage -> System.out.println(errorMessage.getMessage()));
-//            return false;
-//        }
+    public boolean isRegistrationFormValid(){
+        Set<ConstraintViolation<EmployeeForm>> errors = validator.validate(employeeForm);
 
-        if (bindingResult.hasErrors()){
-            return false;
-        }
-        else{
+        if (errors.isEmpty() && !bindingResult.hasErrors()){
             return true;
         }
+        else{
+            errors.forEach(errorMessage -> System.out.println(errorMessage.getMessage()));
+            return false;
+        }
+
     }
 
     public void setBindingResult(BindingResult bindingResult) {
