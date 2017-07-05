@@ -23,8 +23,8 @@ public class EmployeeForm {
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$")
     private String eMail;
 
-////    @Phone()
-//    private String phone;
+    @Phone()
+    private String phone;
 
     @NotNull
     @Size(min=3, max=25)
@@ -73,14 +73,14 @@ public class EmployeeForm {
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
-//
-//    public String getPhone() {
-//        return phone;
-//    }
-//
-//    public void setPhone(String phone) {
-//        this.phone = phone;
-//    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getLogin() {
         return login;
