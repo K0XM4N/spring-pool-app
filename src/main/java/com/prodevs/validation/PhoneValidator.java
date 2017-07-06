@@ -5,6 +5,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.util.regex.Pattern;
 
 /**
  * Created by Krzysztof on 2017-06-18.
@@ -16,10 +17,16 @@ public class PhoneValidator implements ConstraintValidator<Phone, String> {
     }
 
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(String userInputPhoneNumber, ConstraintValidatorContext constraintValidatorContext) {
 
-        Regex regex = new Regex("^(?:[0+]48)?\\d{9}$");
-        if (s.matches(String.valueOf(regex))){
+        boolean isNumberCorrectWithoutDasesh = Pattern.matches("[0-9]{9}",userInputPhoneNumber);
+        boolean isNumberCorrectWithDashes  = false;
+
+        if ((userInputPhoneNumber.charAt(3) == '-') && (userInputPhoneNumber.charAt(7) == '-') && (userInputPhoneNumber.length() == 11)){
+            isNumberCorrectWithDashes = true;
+        }
+
+        if (isNumberCorrectWithDashes || isNumberCorrectWithoutDasesh ){
             return true;
         }
         else{
