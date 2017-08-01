@@ -1,5 +1,6 @@
 package com.prodevs.validation.form;
 
+import com.prodevs.validation.annotation.Password;
 import com.prodevs.validation.annotation.Phone;
 import org.hibernate.validator.constraints.Email;
 
@@ -31,7 +32,7 @@ public class EmployeeForm {
     private String login;
 
     @NotNull
-    @Size(min = 3, max=35)
+    @Password
     private String password;
 
     @NotNull
