@@ -22,14 +22,18 @@ public class PhoneValidator implements ConstraintValidator<Phone, String> {
         boolean isNumberCorrectWithoutDasesh = Pattern.matches("[0-9]{9}",userInputPhoneNumber);
         boolean isNumberCorrectWithDashes  = false;
 
-        if ((userInputPhoneNumber.charAt(3) == '-') && (userInputPhoneNumber.charAt(7) == '-') && (userInputPhoneNumber.length() == 11)){
-            isNumberCorrectWithDashes = true;
-        }
+        try {
+            if ((userInputPhoneNumber.charAt(3) == '-') && (userInputPhoneNumber.charAt(7) == '-') && (userInputPhoneNumber.length() == 11)){
+                isNumberCorrectWithDashes = true;
+            }
 
-        if (isNumberCorrectWithDashes || isNumberCorrectWithoutDasesh ){
-            return true;
-        }
-        else{
+            if (isNumberCorrectWithDashes || isNumberCorrectWithoutDasesh ){
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (Exception e) {
             return false;
         }
 
