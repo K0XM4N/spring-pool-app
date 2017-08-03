@@ -2,6 +2,7 @@ package com.prodevs.validation.form;
 
 import com.prodevs.validation.annotation.Password;
 import com.prodevs.validation.annotation.Phone;
+import com.prodevs.validation.annotation.ReTypedPassword;
 import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.NotNull;
@@ -36,7 +37,7 @@ public class EmployeeForm {
     private String password;
 
     @NotNull
-    @Size(min = 3, max=35)
+    @ReTypedPassword
     private String rePassword;
 
     @NotNull
