@@ -3,6 +3,7 @@ package com.prodevs.validation.annotation;
 import com.prodevs.validation.validator.ReTypedPasswordValidator;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.*;
 
 /**
@@ -13,4 +14,8 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = ReTypedPasswordValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ReTypedPassword {
+
+    String message() default "Passwords are not the same!";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
 }
