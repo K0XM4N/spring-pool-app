@@ -1,6 +1,6 @@
 package com.prodevs.validation.annotation;
 
-import com.prodevs.validation.PasswordValidator;
+import com.prodevs.validation.validator.PasswordValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

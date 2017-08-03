@@ -1,6 +1,6 @@
 package com.prodevs.validation.annotation;
 
-import com.prodevs.validation.PhoneValidator;
+import com.prodevs.validation.validator.PhoneValidator;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

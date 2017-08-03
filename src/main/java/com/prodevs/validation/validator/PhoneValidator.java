@@ -1,4 +1,4 @@
-package com.prodevs.validation;
+package com.prodevs.validation.validator;
 
 import com.prodevs.validation.annotation.Phone;
 import jdk.nashorn.internal.runtime.regexp.joni.Regex;

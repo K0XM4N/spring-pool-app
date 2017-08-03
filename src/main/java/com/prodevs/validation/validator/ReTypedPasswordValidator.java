@@ -1,4 +1,4 @@
-package com.prodevs.validation;
+package com.prodevs.validation.validator;
 
 import com.prodevs.validation.annotation.ReTypedPassword;
 

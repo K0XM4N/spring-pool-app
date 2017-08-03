@@ -1,6 +1,6 @@
 package com.prodevs.validation.annotation;
 
-import com.prodevs.validation.ReTypedPasswordValidator;
+import com.prodevs.validation.validator.ReTypedPasswordValidator;
 
 import javax.validation.Constraint;
 import java.lang.annotation.*;
