@@ -1,8 +1,6 @@
 package com.prodevs.validation.validator;
 
 import com.prodevs.validation.annotation.ReTypedPassword;
-import com.prodevs.validation.form.EmployeeForm;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintValidator;
