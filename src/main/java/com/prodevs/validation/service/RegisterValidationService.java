@@ -1,6 +1,7 @@
 package com.prodevs.validation.service;
 
 import com.prodevs.validation.form.EmployeeForm;
+import com.prodevs.validation.validator.ReTypedPasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
@@ -21,14 +22,15 @@ public class RegisterValidationService {
     private BindingResult bindingResult;
     private EmployeeForm employeeForm;
 
-    public RegisterValidationService(Validator validator) {
+
+    public RegisterValidationService(Validator validator, ReTypedPasswordValidator reTypedPasswordValidator) {
         this.validator = validator;
     }
 
     public boolean isRegistrationFormValid(){
         Set<ConstraintViolation<EmployeeForm>> errors = validator.validate(employeeForm);
 
-        if (errors.isEmpty() && !bindingResult.hasErrors()){
+        if (errors.isEmpty() && !bindingResult.hasErrors() && (employeeForm.getPassword().equals(employeeForm.getRePassword()))){
             return true;
         }
         else{

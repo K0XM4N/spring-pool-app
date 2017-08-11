@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class PasswordValidator implements ConstraintValidator<Password, String> {
     @Override
     public void initialize(Password password) {
-
+        System.out.println("initializing password validator");
     }
 
     @Override

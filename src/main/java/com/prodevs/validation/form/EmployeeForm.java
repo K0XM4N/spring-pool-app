@@ -4,6 +4,7 @@ import com.prodevs.validation.annotation.Password;
 import com.prodevs.validation.annotation.Phone;
 import com.prodevs.validation.annotation.ReTypedPassword;
 import org.hibernate.validator.constraints.Email;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
 /**
  * Created by Krzysztof on 2017-06-18.
  */
+@Component
 public class EmployeeForm {
 
     @NotNull

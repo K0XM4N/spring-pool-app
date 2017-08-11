@@ -2,6 +2,7 @@ package com.prodevs.validation.validator;
 
 import com.prodevs.validation.annotation.ReTypedPassword;
 import com.prodevs.validation.form.EmployeeForm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintValidator;
@@ -13,25 +14,13 @@ import javax.validation.ConstraintValidatorContext;
 @Component
 public class ReTypedPasswordValidator implements ConstraintValidator<ReTypedPassword, String> {
 
-    private EmployeeForm employeeForm;
-
     @Override
     public void initialize(ReTypedPassword reTypedPassword) {
-
     }
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-
-        if (employeeForm.getPassword().equals(employeeForm.getRePassword())){
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
-
-    public void setEmployeeForm(EmployeeForm employeeForm) {
-        this.employeeForm = employeeForm;
-    }
 }
