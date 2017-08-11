@@ -18,7 +18,7 @@ import javax.validation.Payload;
 @Retention(RUNTIME)
 public @interface Phone {
 
-    String message() default "Format must be: +48333444555";
+    String message() default "Format must be: 333-444-555";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
