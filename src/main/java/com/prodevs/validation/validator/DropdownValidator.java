@@ -15,7 +15,12 @@ public class DropdownValidator implements ConstraintValidator<Dropdown, String>{
     }
 
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return false;
+    public boolean isValid(String dropdownValue, ConstraintValidatorContext constraintValidatorContext) {
+
+        if (dropdownValue.contains("Default")){
+            return false;
+        }
+
+        return true;
     }
 }

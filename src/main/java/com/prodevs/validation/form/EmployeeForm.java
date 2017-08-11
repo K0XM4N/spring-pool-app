@@ -1,5 +1,6 @@
 package com.prodevs.validation.form;
 
+import com.prodevs.validation.annotation.Dropdown;
 import com.prodevs.validation.annotation.Password;
 import com.prodevs.validation.annotation.Phone;
 import com.prodevs.validation.annotation.ReTypedPassword;
@@ -42,12 +43,10 @@ public class EmployeeForm {
     @ReTypedPassword
     private String rePassword;
 
-    @NotNull
-    @Size(min = 2, message = "Choose account status from dropdown")
+    @Dropdown
     private String isActive;
 
-    @NotNull
-    @Size(min = 2, message = "Choose role from dropdown")
+    @Dropdown
     private String role;
 
     public EmployeeForm(){
