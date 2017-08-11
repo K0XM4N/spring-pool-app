@@ -43,11 +43,11 @@ public class EmployeeForm {
     private String rePassword;
 
     @NotNull
-    @Size(min = 3)
+    @Size(min = 2, message = "Choose account status from dropdown")
     private String isActive;
 
     @NotNull
-    @Size(min = 3)
+    @Size(min = 2, message = "Choose role from dropdown")
     private String role;
 
     public EmployeeForm(){
