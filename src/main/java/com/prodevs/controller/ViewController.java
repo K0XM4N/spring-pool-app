@@ -1,6 +1,6 @@
 package com.prodevs.controller;
 
-import com.prodevs.factory.impl.EmployeFactoryImpl;
+import com.prodevs.factory.impl.EmployeeFactoryImpl;
 import com.prodevs.model.Employee;
 import com.prodevs.service.EmployeeService;
 import com.prodevs.validation.form.EmployeeForm;
@@ -25,7 +25,7 @@ public class ViewController {
     @Autowired
     private EmployeeService employeeService;
     @Autowired
-    private EmployeFactoryImpl employeeFactory;
+    private EmployeeFactoryImpl employeeFactory;
 
 
     public ViewController(RegisterValidationService registerValidationService){

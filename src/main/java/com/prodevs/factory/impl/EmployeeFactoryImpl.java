@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  * Created by Krzysztof on 2017-08-12.
  */
 @Component
-public class EmployeFactoryImpl implements EmployeeFactoryInterface {
+public class EmployeeFactoryImpl implements EmployeeFactoryInterface {
 
     @Override
     public Employee createEmployee(EmployeeForm employeeForm) {
