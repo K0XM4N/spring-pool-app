@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 /**
  * Created by Krzysztof on 2017-05-21.
@@ -33,9 +34,9 @@ public class EmployeeController {
     @GetMapping("/test")
     public String addEmployee(){
 
-        Employee employee = new Employee("Janusz","Chuj","asda@o2.pl",111222333,"kutas123","pedalpass",false,new Date(100,10,10),"admin");
-        employeeService.save(employee);
-        System.out.println("saved employee");
+//        Employee employee = new Employee("Janusz","Chuj","asda@o2.pl",111222333,"kutas123","pedalpass",false, LocalDateTime.now(),"admin");
+//        employeeService.save(employee);
+//        System.out.println("saved employee");
 
         return "welcome-page";
     }

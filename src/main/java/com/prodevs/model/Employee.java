@@ -1,7 +1,13 @@
 package com.prodevs.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -34,7 +40,7 @@ public class Employee {
     private Boolean isActive;
 
     @Column(name = "update_at")
-    private Date updatedAt;
+    private Timestamp updatedAt;
 
     private String role;
 
@@ -45,7 +51,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String eMail, Integer phone, String login, String password, Boolean isActive, Date updatedAt, String role) {
+    public Employee(String firstName, String lastName, String eMail, Integer phone, String login, String password, Boolean isActive, Timestamp updatedAt, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.eMail = eMail;
@@ -122,11 +128,11 @@ public class Employee {
         isActive = active;
     }
 
-    public Date getUpdatedAt() {
+    public Timestamp getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
 

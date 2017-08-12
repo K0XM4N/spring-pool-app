@@ -8,7 +8,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by Krzysztof on 2017-08-12.
@@ -21,19 +23,34 @@ public class EmployeFactoryImpl implements EmployeeFactoryInterface {
 
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeForm, employee);
-        employee.setPhone(Integer.parseInt(employeeForm.getPhone()));
+        employee.setPhone(Integer.parseInt(removeDashesFromPhoneNumber(employeeForm)));
         employee.setPassword(PasswordEncryptor.hashPassword(employeeForm.getPassword()));
-        employee.setUpdatedAt(Date.valueOf(LocalDate.now()));
+        employee.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+        employee.setActive(checkAccoutStatus(employeeForm));
 
-        if (employeeForm.getIsActive().equals("Active")){
-            employee.setActive(true);
-        }
-        else{
-            employee.setActive(false);
-        }
 
         System.out.println(employee.toString());
 
         return employee;
+    }
+
+
+    private boolean checkAccoutStatus(EmployeeForm employeeForm){
+
+        if (employeeForm.getIsActive().equals("Active")){
+            return true;
+        }
+
+        return false;
+
+    }
+
+    private String removeDashesFromPhoneNumber(EmployeeForm employeeForm){
+
+        if (employeeForm.getPhone().contains("-")){
+            return employeeForm.getPhone().replaceAll("-","");
+        }
+
+        return employeeForm.getPhone();
     }
 }
