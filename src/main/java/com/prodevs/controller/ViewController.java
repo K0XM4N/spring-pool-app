@@ -1,6 +1,8 @@
 package com.prodevs.controller;
 
+import com.prodevs.factory.impl.EmployeFactoryImpl;
 import com.prodevs.model.Employee;
+import com.prodevs.service.EmployeeService;
 import com.prodevs.validation.form.EmployeeForm;
 import com.prodevs.validation.service.RegisterValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,11 @@ public class ViewController {
 
     @Autowired
     private RegisterValidationService registerValidationService;
+    @Autowired
+    private EmployeeService employeeService;
+    @Autowired
+    private EmployeFactoryImpl employeeFactory;
+
 
     public ViewController(RegisterValidationService registerValidationService){
         this.registerValidationService = registerValidationService;
@@ -47,7 +54,8 @@ public class ViewController {
         registerValidationService.setBindingResult(bindingResult);
 
         if (registerValidationService.isRegistrationFormValid()){
-            //perform EmployeeServices methods to add employe to DB
+
+            employeeService.save(employeeFactory.createEmployee(employeeForm));
             return "redirect:/";
         }
         else{
