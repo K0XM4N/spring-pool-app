@@ -26,7 +26,7 @@ public class EmployeeFactoryImpl implements EmployeeFactoryInterface {
         employee.setPhone(Integer.parseInt(removeDashesFromPhoneNumber(employeeForm)));
         employee.setPassword(PasswordEncryptor.hashPassword(employeeForm.getPassword()));
         employee.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
-        employee.setActive(checkAccoutStatus(employeeForm));
+        employee.setActive(checkAccountStatus(employeeForm));
 
 
         System.out.println(employee.toString());
@@ -35,7 +35,7 @@ public class EmployeeFactoryImpl implements EmployeeFactoryInterface {
     }
 
 
-    private boolean checkAccoutStatus(EmployeeForm employeeForm){
+    private boolean checkAccountStatus(EmployeeForm employeeForm){
 
         if (employeeForm.getIsActive().equals("Active")){
             return true;
