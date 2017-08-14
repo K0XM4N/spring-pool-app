@@ -64,6 +64,12 @@ public class ViewController {
 
     }
 
+    @GetMapping(value = "/employees")
+    public String displayAllEmployees(){
+        //get all employees as list or array
+        return "employee-list";
+    }
+
     @GetMapping(value = "/login")
     public String displayLoginPage(Model model){
         return "login-page";
