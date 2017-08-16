@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by Krzysztof on 2017-05-12.
@@ -65,8 +66,11 @@ public class ViewController {
     }
 
     @GetMapping(value = "/employees")
-    public String displayAllEmployees(){
-        //get all employees as list or array
+    public String displayAllEmployees(Model employeeListModel){
+
+        List<Employee> listOfEmployees = employeeService.findAll();
+        employeeListModel.addAttribute("employees",listOfEmployees);
+
         return "employee-list";
     }
 
